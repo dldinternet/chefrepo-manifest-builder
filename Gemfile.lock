@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chefrepo-manifest-builder (0.1.1)
+    chefrepo-manifest-builder (0.1.2)
       archive-tar-minitar (= 0.5.2)
       json (>= 1.8.1, < 1.9)
       manifest-builder (>= 0.6.2, < 1.1)
