@@ -9,10 +9,15 @@ module CiCd
 
     module ChefRepoManifest
       class Runner < Manifest::Runner
+        require 'cicd/builder/chefrepo-manifest/mixlib/build'
+        include CiCd::Builder::ChefRepoManifest::Build
+        require 'cicd/builder/chefrepo-manifest/mixlib/repo'
+        include CiCd::Builder::ChefRepoManifest::Repo
 
         # ---------------------------------------------------------------------------------------------------------------
         def initialize()
           super
+          @klass = 'CiCd::Builder::ChefRepoManifest'
           @default_options[:builder] = VERSION
         end
 
@@ -29,6 +34,9 @@ module CiCd
         # ---------------------------------------------------------------------------------------------------------------
         def setup()
           $stdout.write("ChefRepoManifestBuilder v#{CiCd::Builder::ChefRepoManifest::VERSION}\n")
+          @default_options[:env_keys].select{|key| key !~ /^CLASSES/} << %w(
+                                            REPO_PRODUCTS
+                                           )
           super
         end
 
