@@ -34,9 +34,10 @@ module CiCd
         # ---------------------------------------------------------------------------------------------------------------
         def setup()
           $stdout.write("ChefRepoManifestBuilder v#{CiCd::Builder::ChefRepoManifest::VERSION}\n")
-          @default_options[:env_keys].select{|key| key !~ /^CLASSES/} << %w(
+          @default_options[:env_keys] << %w(
                                             REPO_PRODUCTS
                                            )
+          @default_options[:env_keys] = @default_options[:env_keys].select{|key| key !~ /^CLASSES/}
           super
         end
 
