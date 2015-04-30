@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_dependency 'manifest-builder', '>= 0.6.4', '< 1.1'
-  # gem.add_dependency 'cicd-builder', '>= 0.9.48', '< 1.1'
+  # gem.add_dependency 'cicd-builder', '>= 0.9.51', '< 1.1'
   # gem.add_dependency 'chefrepo-builder', '>= 0.9.34', '< 1.1'
   gem.add_dependency 'json', '>= 1.8.1', '< 1.9'
   gem.add_dependency 's3etag', '>= 0.0.1', '< 0.1.0'
