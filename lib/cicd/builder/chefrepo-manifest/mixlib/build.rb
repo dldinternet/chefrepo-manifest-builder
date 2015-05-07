@@ -142,7 +142,11 @@ module CiCd
                                 chk_obj = @repo.maybeS3Object(chk)
                                 if chk_obj
                                   out = chk_obj.get()
-                                  @vars[:components][product][:sha256] = (out[:body].is_a?(String) ? out[:body] : out[:body].read) if out
+                                  if out
+                                    sha256 = Digest::SHA256.new
+                                    sha256.update(out[:body].is_a?(String) ? out[:body] : out[:body].read)
+                                    @vars[:components][product][:sha256] = sha256.hexdigest
+                                  end
                                 end
                               end
                             else
@@ -178,6 +182,12 @@ module CiCd
 
           @vars[:return_code]
         end
+
+        # # ---------------------------------------------------------------------------------------------------------------
+        # def packageBuild()
+        #   @logger.info CLASS+'::'+__method__.to_s
+        #   @vars[:return_code]
+        # end
 
       end
     end
