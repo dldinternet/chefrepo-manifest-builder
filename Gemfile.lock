@@ -1,23 +1,23 @@
 PATH
   remote: .
   specs:
-    chefrepo-manifest-builder (0.2.3)
+    chefrepo-manifest-builder (0.2.4)
       archive-tar-minitar (= 0.5.2)
       json (>= 1.8.1, < 1.9)
-      manifest-builder (>= 0.7.2, < 1.1)
+      manifest-builder (>= 0.7.3, < 1.1)
       s3etag (>= 0.0.1, < 0.1.0)
 
 PATH
   remote: ../chefrepo-builder
   specs:
-    chefrepo-builder (0.9.41)
-      cicd-builder (>= 0.9.62, < 1.1)
+    chefrepo-builder (0.9.43)
+      cicd-builder (>= 0.9.63, < 1.1)
       json (= 1.8.1)
 
 PATH
   remote: ../cicd-builder
   specs:
-    cicd-builder (0.9.62)
+    cicd-builder (0.9.63)
       artifactory (>= 2.2.1, < 2.3)
       awesome_print (>= 1.6, < 2.0)
       aws-sdk (>= 2.0, < 2.1)
@@ -34,9 +34,9 @@ PATH
 PATH
   remote: ../manifest-builder
   specs:
-    manifest-builder (0.7.2)
+    manifest-builder (0.7.3)
       archive-tar-minitar (= 0.5.2)
-      chefrepo-builder (>= 0.9.41, < 1.1)
+      chefrepo-builder (>= 0.9.43, < 1.1)
       json (>= 1.8.1, < 1.9)
       s3etag (>= 0.0.1, < 0.1.0)
 
