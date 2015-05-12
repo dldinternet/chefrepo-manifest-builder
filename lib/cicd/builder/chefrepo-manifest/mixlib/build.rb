@@ -25,6 +25,7 @@ module CiCd
                   @logger.error "Bad repo/inventory specified. s3://#{ENV['AWS_S3_BUCKET']}/#{key}"
                   @vars[:return_code] = Errors::PRUNE_BAD_REPO
                 else
+                  versrels = nil
                   if json['container'] and json['container']['variants']
                     # but does not have our variant ...
                     variants = json['container']['variants']
@@ -71,20 +72,20 @@ module CiCd
                         end
                         unless drawer
                           if branches.include?(@vars[:branch])
-                            survivors = builds.select{ |drawer|
-                              bra = @repo._getBranch(@vars, drawer)
+                            survivors = builds.select{ |dwr|
+                              bra = @repo._getBranch(@vars, dwr)
                               bra == @vars[:branch]
                             }
                             builds = survivors
                             if versions.include?(@vars[:version])
-                              survivors = builds.select{ |drawer|
-                                ver = @repo._getVersion(@vars, drawer)
+                              survivors = builds.select{ |draw|
+                                ver = @repo._getVersion(@vars, draw)
                                 ver == @vars[:version]
                               }
                               builds = survivors
-                              if versrels.include?("#{@vars[:version]}-#{@vars[:release]}")
-                                survivors = builds.select{ |drawer|
-                                  rel = @repo._getRelease(@vars, drawer)
+                              if versrels and versrels.include?("#{@vars[:version]}-#{@vars[:release]}")
+                                survivors = builds.select{ |draw|
+                                  rel = @repo._getRelease(@vars, draw)
                                   rel == @vars[:release]
                                 }
                                 builds = survivors

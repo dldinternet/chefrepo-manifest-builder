@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    chefrepo-manifest-builder (0.2.2)
+    chefrepo-manifest-builder (0.2.3)
       archive-tar-minitar (= 0.5.2)
       json (>= 1.8.1, < 1.9)
-      manifest-builder (>= 0.7.0, < 1.1)
+      manifest-builder (>= 0.7.2, < 1.1)
       s3etag (>= 0.0.1, < 0.1.0)
 
 PATH
@@ -34,7 +34,7 @@ PATH
 PATH
   remote: ../manifest-builder
   specs:
-    manifest-builder (0.7.1)
+    manifest-builder (0.7.2)
       archive-tar-minitar (= 0.5.2)
       chefrepo-builder (>= 0.9.41, < 1.1)
       json (>= 1.8.1, < 1.9)
